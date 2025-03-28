@@ -1,6 +1,13 @@
-from sheet_reader import get_questions_from_sheet
+from data_retriever import get_sheet
 
 # Google Sheets-dən sualları alırıq
+def get_questions_from_sheet():
+    sheet = get_sheet()
+    if sheet:
+        questions = sheet.get_all_records()
+        return questions
+    return []
+
 QUESTIONS = get_questions_from_sheet()
 
 def get_question(level='normal'):
